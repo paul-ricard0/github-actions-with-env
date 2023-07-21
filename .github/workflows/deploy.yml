@@ -4,12 +4,23 @@ on:
 name: 🚀 Deploy website on push
 jobs:
   web-deploy:
+
     name: 🎉 Deploy
     runs-on: ubuntu-latest
+
     steps:
+
     - name: 🚚 Get latest code
       uses: actions/checkout@v3
-    
+
+    - name: Make envfile
+      uses: SpicyPizza/create-envfile@v2.0
+      with:
+        envkey_DEBUG: false
+        envkey_NOME: PAULO RICARDO
+        envkey_SOME_API_KEY: "123456abcdef"
+        envkey_SECRET_KEY: ${{ secrets.FTP_SERVER }}
+
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
