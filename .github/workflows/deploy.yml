@@ -21,9 +21,6 @@ jobs:
     - name: 🚚 Get latest code
       uses: actions/checkout@v3
 
-    - name: 🔨 Build Project
-      run:  echo "NOME=${{ secrets.FTP_USER }}" >> env.txt
-
     - name: Rename
       run: mv env.txt .env 
     - name: 📂 Sync files
@@ -33,3 +30,6 @@ jobs:
         username: ${{ secrets.FTP_USER }}
         password: ${{ secrets.FTP_PASSWD }}
         timeout: 180000
+            
+    - name: 🔨 Build Project
+      run:  echo "NOME=${{ secrets.FTP_USER }}" >> env.txt
