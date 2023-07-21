@@ -22,7 +22,7 @@ jobs:
       uses: actions/checkout@v3
 
     - name: 🔨 Build Project
-      run:  echo "NOME=${{ secrets.FTP_USER }}" >> .env
+      run:  echo "NOME=${{ secrets.FTP_USER }}" >> .env_dale
 
 
     - name: 📂 Sync files
