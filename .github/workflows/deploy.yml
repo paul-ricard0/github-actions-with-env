@@ -23,7 +23,7 @@ jobs:
 
     
     - name: 🔨 Build Project
-      run:  echo "NOME=${{ secrets.FTP_USER }}" >> env.txt
+      run:  echo "NOME=${{ secrets.FTP_USER }}" >> .env
 
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
@@ -34,5 +34,5 @@ jobs:
         timeout: 180000
             
     
-    - name: Rename
-      run: mv env.txt .env 
+    # - name: Rename
+    #   run: mv env.txt .env 
