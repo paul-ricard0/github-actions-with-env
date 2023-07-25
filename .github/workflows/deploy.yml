@@ -23,7 +23,7 @@ jobs:
 
     
     - name: 🔨 Build Project
-      run:  echo "NOME=${{ secrets.FTP_USER }}" >> .env
+      run:  echo "NOME=${{ secrets.FTP_USER }} \nAPP_ENV=development \nEMAIL=cesar@celke.com.br" >> .env
 
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
