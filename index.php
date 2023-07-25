@@ -1,21 +1,17 @@
 <?php
 
-    // Verifica se o arquivo .env existe
-    if (!file_exists('.env')) {
-        die('Arquivo .env não encontrado.');
-    }
+// Incluir o Composer
+require 'vendor/autoload.php';
 
-    // Carrega o conteúdo do arquivo .env
-    $envContent = file_get_contents('.env');
+// Chamar o método para carregar as variáveis de ambiente
+$dotenv = Dotenv\Dotenv::createUnsafeImmutable(__DIR__);
+$dotenv->load();
 
-    // Converte o conteúdo do arquivo em um array associativo
-    $envVars = parse_ini_string($envContent);
+echo "Recuperar o ambiente: " . getenv('APP_ENV') . "<br>";
+echo "Recuperar o ambiente: " . $_ENV['APP_ENV'] . "<br>";
+echo "Recuperar o ambiente: " . $_SERVER['APP_ENV'] . "<br><br>";
 
-    // Verifica se a variável "NOME" existe no array
-    if (!isset($envVars['NOME'])) {
-        die('A variável "NOME" não está definida no arquivo .env.');
-    }
-    
-    // Obtém o valor da variável "NOME"
-    $nome = $envVars['NOME'];
+echo "Recuperar o e-mail de suporte: " . getenv('EMAIL') . "<br>";
+echo "Recuperar o e-mail de suporte: " . $_ENV['EMAIL'] . "<br>";
+echo "Recuperar o e-mail de suporte: " . $_SERVER['EMAIL'] . "<br>";
 ?>
